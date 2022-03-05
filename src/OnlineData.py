@@ -128,14 +128,23 @@ class YahooSession(requests.Session):
         json_str = json_str.split(';\n}')[0].strip()
 
         # The relevant data is in context -> dispatcher -> stores -> QuoteSummaryStore
-        # TODO: Another function for context -> dispatcher -> stores -> QuoteTimeSeriesStore
-        data = json.loads(json_str)['context']['dispatcher']['stores']['QuoteSummaryStore']
+        data = json.loads(json_str)['context']['dispatcher']['stores']
+
+        data_summary = data['QuoteSummaryStore']
+        data = data['QuoteTimeSeriesStore']
 
         # Replace empty dictionaries with null
         new_data = json.dumps(data).replace('{}', 'null')
         # TODO: Understand this line
         new_data = re.sub(r'{[\'|\"]raw[\'|\"]:(.*?),(.*?)}', r'\1', new_data)
-        
+
         json_info = json.loads(new_data)
 
-        return json_info
+        # Replace empty dictionaries with null
+        new_data = json.dumps(data_summary).replace('{}', 'null')
+        # TODO: Understand this line
+        new_data = re.sub(r'{[\'|\"]raw[\'|\"]:(.*?),(.*?)}', r'\1', new_data)
+        
+        json_info_summary = json.loads(new_data)
+
+        return json_info_summary, json_info

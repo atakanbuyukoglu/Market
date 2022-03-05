@@ -6,7 +6,4 @@ session = YahooSession(delay=2.0)
 ticker = 'MSFT'
 msft = Company.PublicCompany(ticker, ticker, session)
 
-result = msft.info
-print(result.keys())
-with open('file.txt', 'w') as file:
-    file.write(str(result))
+print(msft.get_valuation())

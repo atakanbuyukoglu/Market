@@ -15,7 +15,7 @@ class Component(ABC):
 
 class CashComponent(Component):
 
-    def __init__(self, amount, multiplier) -> None:
+    def __init__(self, amount, multiplier=1.0) -> None:
         super().__init__()
         self.amount = amount
         self.mult = multiplier
