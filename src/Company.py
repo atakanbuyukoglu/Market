@@ -1,5 +1,6 @@
 # Defines a company and related classes
 from OnlineData import YahooSession
+from Const import FINANCIALS_SITE
 
 class Company:
 
@@ -22,5 +23,5 @@ class PublicCompany(Company):
 
         
     def update_online_info(self, session: YahooSession):
-        financials_site = "https://finance.yahoo.com/quote/" + self.ticker + "/financials?p=" + self.ticker
+        financials_site = FINANCIALS_SITE(self.ticker)
         self.info = session._parse_json(financials_site)
