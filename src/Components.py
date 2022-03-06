@@ -22,3 +22,9 @@ class CashComponent(Component):
 
     def get_value(self) -> float:
         return self.amount * self.mult
+
+# TODO: Implement a Business Component
+class BusinessComponent(Component):
+
+    def __init__(self) -> None:
+        super().__init__()

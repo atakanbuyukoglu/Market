@@ -12,6 +12,9 @@ class Company(ABC):
         self.name = name
         self.components = {}
 
+    def add_component(self, comp_name: str, comp: Component):
+        self.components[comp_name] = comp
+
     @abstractmethod
     def get_valuation(self):
         pass
