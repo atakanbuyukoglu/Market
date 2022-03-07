@@ -35,7 +35,7 @@ class CompaniesPage(B.Frame):
         self.add_company_button.pack(side='top')
 
     def company_button_cb(self, company):
-        self.master.show_frame(CompanyPage, company)
+        self.master.show_frame(CompanyPage, company=company)
 
     def add_company_cb(self):
         self.master.show_frame(AddCompanyPage)
