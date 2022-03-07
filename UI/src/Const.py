@@ -8,3 +8,6 @@ HEADERS = {
 }
 
 FINANCIALS_SITE = lambda ticker : "https://finance.yahoo.com/quote/" + ticker + "/financials?p=" + ticker
+
+# Data locations
+COMPANIES_FILE = 'Data/companies.pickle'

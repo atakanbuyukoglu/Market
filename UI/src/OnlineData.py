@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import json
 import re
-from Const import HEADERS, BASE_URL
+from .Const import HEADERS, BASE_URL
 
 # Static values for the session for data collection
 

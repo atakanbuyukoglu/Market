@@ -1,8 +1,8 @@
 # Defines a company and related classes
-from OnlineData import YahooSession
-from Const import FINANCIALS_SITE
+from .OnlineData import YahooSession
+from .Const import FINANCIALS_SITE
 from abc import ABC, abstractmethod
-from Components import Component, CashComponent
+from .Components import Component, CashComponent
 from typing import Dict
 
 class Company(ABC):
