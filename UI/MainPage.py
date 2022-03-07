@@ -1,14 +1,15 @@
 import tkinter as tk
 from . import Base as B
+from .CompanyPages import CompaniesPage
 
 class MainPage(B.Frame):
     def __init__(self, master: B.Container):
         # First init
         super().__init__(master)
-        self.master = master
 
         # Buttons
         self.quit_button = None
+        self.companies_button = None
 
         # Configuration
         # self.pack(fill='both')
@@ -17,8 +18,14 @@ class MainPage(B.Frame):
 
     def create_widgets(self):
 
+        self.companies_button = tk.Button(master=self, text='Companies', command=self.companies_button_cb)
+        self.companies_button.pack(side='top')
+
         self.quit_button = tk.Button(master=self, text='Quit', command=self.destroy_root)
         self.quit_button.pack(side='top')
+
+    def companies_button_cb(self):
+        self.master.show_frame(CompaniesPage)
 
 
 # The Root Module
