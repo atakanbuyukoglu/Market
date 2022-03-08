@@ -40,6 +40,7 @@ class PublicCompany(Company):
         # Update the components using new information
         self.update_components()
 
+    # TODO: Add a business component
     def update_components(self):
         # The cash component
         cash_amount = self.info_sum['balanceSheetHistoryQuarterly']['balanceSheetStatements'][0]['cash']
